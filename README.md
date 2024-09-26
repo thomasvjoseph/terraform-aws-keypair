@@ -1,4 +1,3 @@
-Here's a sample `README.md` file for your Terraform module:
 
 ```markdown
 # AWS Key Pair Terraform Module
@@ -49,6 +48,5 @@ After applying the Terraform configuration, the private key will be saved as `my
 ## License
 
 MIT License
-```
 
-Replace `your-terraform-registry-namespace` with your actual Terraform Registry namespace. This `README.md` will provide clarity on how to use the module when you push it to the Terraform Registry.
+Author: thomas joseph

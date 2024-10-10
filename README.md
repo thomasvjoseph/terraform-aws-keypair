@@ -1,5 +1,3 @@
-
-```markdown
 # AWS Key Pair Terraform Module
 
 This Terraform module creates an AWS key pair and generates a corresponding RSA private key. The key pair can be used to connect to EC2 instances securely.
@@ -31,7 +29,10 @@ This module will create an AWS key pair using the provided `key_pair_name` and g
 
 ## Outputs
 
-None.
+| Name              | Description                          |
+|-------------------|--------------------------------------|
+| `key_pair_name`   | The name of the generated key pair   |
+| `private_key_path`| The path to the private key file     |
 
 ## Example
 
@@ -43,10 +44,23 @@ module "my_key_pair" {
 }
 ```
 
-After applying the Terraform configuration, the private key will be saved as `my-new-key.pem` in your working directory.
+After applying the Terraform configuration, the private key will be saved via any CI/CD pipeline `my-new-key.pem` 
+example github actions:
 
+## Examples
+```yml
+    - name: Upload PEM file
+        if: contains(github.event.head_commit.message, 'keypair')
+        uses: actions/upload-artifact@v4
+        with:
+          name: pem-file
+          path: environments/dev/hello-module.pem #specify the path name and key file name
+```
 ## License
 
-MIT License
+This module is licensed under the MIT License.
 
-Author: thomas joseph
+## Author:  
+thomas joseph
+- [linkedin](https://www.linkedin.com/in/thomas-joseph-88792b132/)
+- [medium](https://medium.com/@thomasvjoseph)

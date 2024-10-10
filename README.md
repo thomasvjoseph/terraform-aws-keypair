@@ -6,7 +6,8 @@ This Terraform module creates an AWS key pair and generates a corresponding RSA 
 
 ```hcl
 module "key_pair" {
-  source        = "your-terraform-registry-namespace/key-pair/aws"
+  source        = "thomasvjoseph/keypair/aws"
+  version       = "1.x.x"
   key_pair_name = "my-key-pair"
   rsa_bits      = 2048  # Optional, defaults to 4096
 }
@@ -34,15 +35,6 @@ This module will create an AWS key pair using the provided `key_pair_name` and g
 | `key_pair_name`   | The name of the generated key pair   |
 | `private_key_path`| The path to the private key file     |
 
-## Example
-
-```hcl
-module "my_key_pair" {
-  source        = "your-terraform-registry-namespace/key-pair/aws"
-  key_pair_name = "my-new-key"
-  rsa_bits      = 2048
-}
-```
 
 After applying the Terraform configuration, the private key will be saved via any CI/CD pipeline `my-new-key.pem` 
 example github actions:

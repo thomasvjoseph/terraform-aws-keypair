@@ -12,3 +12,10 @@ resource "local_file" "tf-key" {
   content  = tls_private_key.rsa.private_key_pem
   filename = "${var.key_pair_name}.pem"
 }
+
+module "secretsmanager" {
+  source              = "./modules/secretsmanager"
+  secretsmanager_name = "test"
+  secrets_value       = tls_private_key.rsa.private_key_pem
+
+}
